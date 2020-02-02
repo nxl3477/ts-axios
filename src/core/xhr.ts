@@ -134,6 +134,11 @@ export default function xhr (config: AxiosRequestConfig):AxiosPromise {
           // 取消请求
           request.abort()
           reject(reason)
+        }).catch(
+          // 忽略测试
+          /*  istanbul ignore  next */
+          () => {
+          // do nothing
         })
       }
     }

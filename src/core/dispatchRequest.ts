@@ -8,7 +8,8 @@ import transform from './transform'
 function axios (config: AxiosRequestConfig):AxiosPromise {
   // 发送请求前发送这个函数检测是否已经调用过请求的取消
   throwIfCancellationRequested(config)
-  // 配置的格式转化
+  
+  // 配置的格式转化
   processConfig(config)
   // 真正的发送请求 ， 并格式化返回数据
   return xhr(config).then(res => transformResponseData(res))
